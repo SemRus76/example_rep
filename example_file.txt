@@ -1,2 +1,7 @@
 File For Example Changed Change
 ...
+
+
+example:
+x^2 - 7x + 6 = 0
+
