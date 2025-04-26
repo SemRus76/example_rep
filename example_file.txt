@@ -1,2 +1,12 @@
 File For Example Changed Change
 ...
+
+
+example:
+x^2 - 7x + 6 = 0
+
+D = 49 - 24 = 25
+x, = (7 + 5) / 2 = 6
+x,, = (7 - 5) / 2 = 1
+
+
