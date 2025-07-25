@@ -18,6 +18,6 @@ CREATE TABLE IF NOT EXISTS public.example
     age integer,
 
 	PRIMARY KEY(id)
-)
+);
 
 select * from example;
