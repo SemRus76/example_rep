@@ -1,0 +1,76 @@
+-- DDL - CREATE, ALTER, DROP - Управление сущностями базы данных
+-- DML - INSERT, UPDATE, DELETE, SELECT - Управление самими данными в таблицах
+
+-- CREATE - позволяет создавать сущности Базы Данных 
+-- CREATE TABLE <название таблицы>
+-- (
+-- 		<имя атрибута> <тип данных атрибута> <правила/ограничения атрибута>,
+--		...
+-- 		PRIMARY KEY(<имя атрибута>)
+-- )
+
+-- Типы данных:
+-- integer - для целых чисел
+-- real - для чисел с плавающей запятой
+-- text - для текста
+-- boolean - для значений истина (true) или ложь (false)
+-- uuid - для уникальных id - gen_random_uuid()
+
+-- Ограничения 
+-- NOT NULL - запрещает заводить записи с пустым значением атрибута
+-- DEFAUL(<значение>) - указывает значение по умолчанию для атрибута
+-- PRIMARY KEY - атрибут или набор атрибутов, который УНИКАЛЬНО идентифицирует
+--	конкретную запись
+
+-- DROP - удаляет сущность Базы Данных
+-- DROP TABLE <имя таблицы>;
+
+-- DROP TABLE IF EXISTS public.example;
+
+-- CREATE TABLE IF NOT EXISTS public.example
+-- (
+--     id uuid DEFAULT gen_random_uuid(),
+--     name text,
+--     age integer,
+
+-- 	PRIMARY KEY(id)
+-- );
+
+-- select * from example;
+
+-- INSERT INTO -- позволяет добавить запись в таблицу
+-- INSERT INTO <имя таблицы> (<перечисление атрибутов>) VALUES
+-- 		(<значения для записи>);
+
+
+-- INSERT INTO example VALUES
+-- 	('d98e10cc-fc47-4ed5-8d2d-27007b4fffa8','Марина', 35);
+-- 	('b366b404-16b1-4b6d-9f6a-1a33ed1e4252','Катя', 36),
+-- 	('2afb8178-8d7d-442f-95b1-178854f92723','Максим', 37);
+
+-- DELETE -- позволяет удалить запись/записи из таблицы
+-- DELETE FROM <имя таблицы> WHERE <указание условия выбора>;
+
+-- DELETE FROM example WHERE 
+-- 	id = '2afb8178-8d7d-442f-95b1-178854f92723';
+
+-- DELETE FROM example WHERE 
+-- 	name = 'Марина';
+
+-- SELECT - Позволяет вывести набор данных из таблицы/таблиц
+-- SELECT <набор атрибутов> FROM <таблица> WHERE <условие выбора>;
+
+-- UPDATE - Позволяет изменить данные внутри таблицы
+-- UPDATE <имя таблицы> SET <атрибут> = <значение> WHERE <условие выбора>; 
+
+-- UPDATE example SET name = 'Иван' WHERE id = 'd98e10cc-fc47-4ed5-8d2d-27007b4fffa8';
+
+select * from example;
+
+
+
+
+
+
+
+
