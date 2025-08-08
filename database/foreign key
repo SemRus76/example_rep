@@ -1,0 +1,70 @@
+-- DROP TABLE IF EXISTS public.personal;
+
+-- CREATE TABLE IF NOT EXISTS public.personal
+-- (
+--     id uuid DEFAULT gen_random_uuid(),
+--     name text,
+--     age integer,
+
+-- 	PRIMARY KEY(id)
+-- );
+
+-- DROP TABLE IF EXISTS public.salary_statement;
+
+-- CREATE TABLE IF NOT EXISTS public.salary_statement
+-- (
+-- 	id uuid NOT NULL,
+-- 	salary real,
+-- 	prize real,
+
+-- 	PRIMARY KEY(id),
+-- 	FOREIGN KEY (id) REFERENCES personal(id) 
+-- 		ON UPDATE CASCADE
+-- 		ON DELETE CASCADE
+-- );
+
+-- FOREIGN KEY - Внешний ключ - это атрибут или набор атрибутов, устанавливающий
+-- 	соответствие между элементами двух таблиц
+
+-- FOREIGN KEY (<атрибует таблицы, который будет связываться>) 
+--  REFERENCES <тиблица, с которой устанавливается связь>(<поле таблицы>) 
+--  ON UPDATE <реакция на изменение в связанной таблице>
+--  ON DELETE <реакция на удаление  в связанной таблице>
+
+-- Допускаются следующие реакции:
+-- NOT ACTION - полное бездействие
+-- SET NULL - установить значение null для атрибута у записи (Не должно быть NOT NULL)
+-- SET DEFAULT - установить значение по-умолчаниб для атрибута у записи (Должен быть объявлен DEFAULT для поля)
+-- CASCADE - изменить или удалить значение вслед за связанной таблицей
+
+-- ВАЖНО - для связывания двух таблиц FOREIGN KEY необходимо, что бы типы данных
+--  связываемого и вызываемого поля в таблицах совподали
+
+select * from personal;
+select * from salary_statement;
+
+-- INSERT INTO personal (name, age) VALUES ('Кирилл', 32);
+-- DELETE FROM personal WHERE id = 'a3fce635-8ca0-4d13-a7fc-6282b76b1f6d';
+
+-- INSERT INTO personal (name, age) VALUES ('Влада', 30);
+
+select * from personal;
+
+-- INSERT INTO salary_statement (id, salary, prize) 
+-- 	VALUES ('47d387da-7634-486b-b8a8-75b05e4bacfc',85000, 25000);
+-- INSERT INTO salary_statement (id, salary, prize) 
+-- 	VALUES ('6bd836d3-7a8e-4723-a26c-199b6c829716',87000, 30000);
+
+
+select * from salary_statement;
+
+select personal.id, name, age, salary, prize from personal, salary_statement
+	where personal.id = salary_statement.id;
+
+
+
+
+
+
+
+
